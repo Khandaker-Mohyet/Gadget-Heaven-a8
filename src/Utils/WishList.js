@@ -22,7 +22,7 @@ const addToWishList = (product) => {
   if(isExist) return toast.error('Already exist!');
   addWishList.push(product)
   localStorage.setItem('addWishList', JSON.stringify(addWishList))
-  toast.success('Successfully added');
+  toast.success('Successfully add to wishlist');
 }
 
 
@@ -31,7 +31,7 @@ const removeWishList = (id) => {
   const addWishList = getAllWishList()
   const remaining = addWishList.filter(product => product.id != id)
   localStorage.setItem('addWishList', JSON.stringify(remaining))
-  toast.success('Successfully remove');
+  toast.success('Successfully remove to wishlist');
 }
 
 

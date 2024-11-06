@@ -22,7 +22,7 @@ const addToCard = (product) => {
   if(isExist) return toast.error('Already exist!');
   addCard.push(product)
   localStorage.setItem('addCard', JSON.stringify(addCard))
-  toast.success('Successfully added');
+  toast.success('Successfully add to card');
 }
 
 
@@ -31,7 +31,7 @@ const removeCard = (id) => {
   const addCard = getAllProducts()
   const remaining = addCard.filter(product => product.id != id)
   localStorage.setItem('addCard', JSON.stringify(remaining))
-  toast.success('Successfully removed');
+  toast.success('Successfully removed to card');
 }
 
 

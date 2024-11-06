@@ -1,12 +1,34 @@
 
+import { useEffect, useState } from "react";
 import { FaShoppingCart } from "react-icons/fa";
 import { FiHeart } from "react-icons/fi";
 import { Link, NavLink, useLocation } from 'react-router-dom';
+import { getAllProducts } from "../Utils";
+import { getAllWishList } from "../Utils/WishList";
 
 const Navbar = () => {
-  const {Pathname} = useLocation()
+  const { Pathname } = useLocation()
+
+
+  const [product, setProduct] = useState([])
+
+  useEffect(() => {
+    const addCard = getAllProducts()
+    setProduct(addCard)
+  }, [])
+  
+  
+
+
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    const addWishList = getAllWishList()
+    setProducts(addWishList)
+  }, [])
+
+
   return (
-    <div className={`navbar bg-base-100 ${Pathname === '/'? "bg-purple-700 text-white" : "bg-white"}`}>
+    <div className={`navbar bg-base-100 w-11/12 mx-auto ${Pathname === '/'? "bg-purple-700 text-white" : "bg-white"}`}>
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -59,8 +81,10 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end flex gap-5">
-    <a className="bg-white p-2 rounded-full border"><FaShoppingCart /></a>
-    <a className="bg-white p-2 rounded-full border"><FiHeart /></a>
+        <a className="bg-white p-2 rounded-full border"><FaShoppingCart /></a>
+        <span className="-ml-9 -mt-8 bg-white px-2 rounded-full">{product.length}</span>
+        <a className="bg-white p-2 rounded-full border"><FiHeart /></a>
+        <span className="-ml-8 -mt-8 bg-white px-2 rounded-full">{products.length}</span>
   </div>
 </div>
   );
