@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link, Outlet } from 'react-router-dom';
 import { getAllProducts } from '../Utils';
 import Card from '../Components/Card';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Dashboard = () => {
 
@@ -12,7 +13,11 @@ const Dashboard = () => {
   // },[])
 
   return (
-    <div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Gadget Heaven | Dashboard</title>
+        </Helmet>
       <div className="text-center bg-purple-700 text-white space-y-3 py-8">
         <h1 className="text-3xl font-bold">Dashobard</h1>
         <p>Explore the latest gadgets that will take your experience to <br /> the next level. From smart devices to the coolest accessories, <br /> we have it all!</p>
@@ -27,7 +32,8 @@ const Dashboard = () => {
         ))}
       </div> */}
       <Outlet></Outlet>
-    </div>
+      </div>
+      </HelmetProvider>
   );
 };
 

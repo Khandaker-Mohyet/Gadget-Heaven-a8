@@ -3,12 +3,17 @@ import Banner from '../Components/Banner';
 import Heading from '../Components/Heading';
 import { Outlet, useLoaderData } from 'react-router-dom';
 import Categories from '../Components/Categories';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Home = () => {
   const catagories = useLoaderData()
   console.log(catagories)
   return (
-    <div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Gadget Heaven | Home</title>
+        </Helmet>
       <Banner></Banner>
       <Heading title={'Explore Cutting-Edge Gadgets'}></Heading>
       <div className="grid md:grid-cols-2 lg:grid-cols-4 w-10/12 mx-auto gap-6">
@@ -19,7 +24,8 @@ const Home = () => {
           <Outlet></Outlet>
        </div>
       </div>
-    </div>
+      </div>
+      </HelmetProvider>
   );
 };
 

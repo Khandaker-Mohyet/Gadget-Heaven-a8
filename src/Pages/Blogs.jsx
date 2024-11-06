@@ -1,8 +1,14 @@
 import React from 'react';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Blogs = () => {
   return (
-    <div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Gadget Heaven | Blogs</title>
+        </Helmet>
+        
       <div className="text-center bg-purple-700 text-white space-y-3 py-8">
         <h1 className="text-3xl font-bold">Blogs</h1>
         <p>Explore the latest gadgets that will take your experience to <br /> the next level. From smart devices to the coolest accessories, <br /> we have it all!</p>
@@ -22,7 +28,8 @@ Finally, stay secure by setting up a screen lock and backing up your data. With 
           <p>To start using a laptop, press the power button, and if prompted, enter your password to log in. Navigate the screen with the trackpad or an external mouse, and use the keyboard for typing. To connect to the internet, select the network icon, choose your Wi-Fi, and enter the password. You can open apps from the Start menu (on Windows) or Dock (on Mac), such as a web browser for browsing the internet. To save files, choose “Save” from the File menu in any program, selecting folders like Documents or Desktop for easy access. Adjust volume and brightness settings through the function keys or control panel for comfort. Keep your system secure by updating software regularly, and back up important files on cloud storage or an external drive. With these essentials, you’ll be able to use your laptop confidently and efficiently.</p>
         </div>
       </div>
-    </div>
+      </div>
+      </HelmetProvider>
   );
 };
 

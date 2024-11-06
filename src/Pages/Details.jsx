@@ -4,6 +4,7 @@ import { FiHeart } from "react-icons/fi";
 import { FaShoppingCart } from "react-icons/fa";
 import { addToCard } from '../Utils';
 import { addToWishList } from '../Utils/WishList';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
 const Details = () => {
   const data = useLoaderData()
@@ -31,7 +32,11 @@ const Details = () => {
   }, [data, id])
   console.log(specification)
   return (
-    <div>
+    <HelmetProvider>
+      <div>
+        <Helmet>
+          <title>Gadget Heaven | Details</title>
+        </Helmet>
       <div className="text-center bg-purple-700 text-white space-y-4 pt-8 pb-24">
         <h1 className="text-3xl font-bold">Product Details</h1>
         <p>Explore the latest gadgets that will take your experience to <br /> the next level. From smart devices to the coolest accessories, <br /> we have it all!</p>
@@ -76,7 +81,8 @@ const Details = () => {
           </div>
         </div>
       </div>
-    </div>
+      </div>
+      </HelmetProvider>
   );
 };
 
