@@ -19,6 +19,8 @@ const CardList = () => {
     const addCard = getAllProducts()
     setProduct(addCard)
   }, [])
+
+
   
   const handelRemove = (id) => {
     removeCard(id)

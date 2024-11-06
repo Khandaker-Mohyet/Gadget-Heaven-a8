@@ -7,7 +7,8 @@ import { getAllProducts } from "../Utils";
 import { getAllWishList } from "../Utils/WishList";
 
 const Navbar = () => {
-  const { Pathname } = useLocation()
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
 
   const [product, setProduct] = useState([])
@@ -28,7 +29,7 @@ const Navbar = () => {
 
 
   return (
-    <div className={`navbar bg-base-100 w-11/12 mx-auto ${Pathname === '/'? "bg-purple-700 text-white" : "bg-white"}`}>
+    <div className={`navbar bg-base-100 w-11/12 mx-auto ${isHomePage === '/'? "bg-purple-700 text-white" : "bg-white"}`}>
   <div className="navbar-start">
     <div className="dropdown">
       <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
